@@ -12,6 +12,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "express": "4.16.3",
+    "formik": "^0.11.11",
     "razzle": "2.1.0",
     "react": "16.4.0",
     "react-dom": "16.4.0",
@@ -23,6 +24,7 @@
   },
   "reactToolbox": {
     "include": [
+      "BUTTON",
       "INPUT"
     ],
     "customProperties": {
