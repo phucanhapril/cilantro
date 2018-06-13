@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ProgressSidebar from '../ProgressSidebar';
 
 import '../../../assets/react-toolbox/theme.css';
 import './styles.css';
@@ -6,7 +7,7 @@ import './styles.css';
 class PatientIngest extends Component {
   constructor(props) {
     super(props);
-    this.state = { progress: 0 };
+    this.state = { progress: 4 };
   }
   
   render() {
@@ -21,8 +22,8 @@ class PatientIngest extends Component {
     ];
     return (
       <div className="PatientIngest">
-        But soft!
         <div className="PatientIngest__sidebar">
+          <ProgressSidebar progress={progress} steps={steps} />
         </div>
         <div className="PatientIngest__form">
         </div>

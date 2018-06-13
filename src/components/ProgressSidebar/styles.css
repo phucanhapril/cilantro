@@ -1,0 +1,63 @@
+.ProgressSidebar {
+  background-color: #64bcae;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Karla', sans-serif;
+  padding: 8px;
+  width: 100%;
+}
+
+.ProgressSidebar__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ProgressSidebar__logo {
+  align-self: center;
+  height: 36px;
+  margin: 0 8px 0 -16px;
+  width: 36px;
+}
+
+.ProgressSidebar__title {
+  font-size: 24px;
+  font-weight: 200;
+  margin: 4px 0;
+}
+
+.ProgressSidebar__steps {
+  display: none;
+}
+
+/* Tablet+ */
+@media (min-width: 550px) {
+  .ProgressSidebar {
+    display: flex;
+    height: 100%;
+    padding: 24px;
+  }
+
+  .ProgressSidebar__content {
+    justify-content: flex-end;
+  }
+
+  .ProgressSidebar__logo {
+    align-self: flex-end;
+    height: 72px;
+    margin: 0;
+    width: 72px;
+  }
+
+  .ProgressSidebar__title {
+    font-size: 48px;
+    text-align: right;
+    width: 100%;
+  }
+
+  .ProgressSidebar__steps {
+    display: block;
+    height: 72px;
+    width: 100%;
+  }
+}
