@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import logo from '../../assets/icon.svg';
-import '../../../assets/react-toolbox/theme.css';
+import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
 const ProgressSidebar = ({ progress, steps }) => (
@@ -11,7 +11,7 @@ const ProgressSidebar = ({ progress, steps }) => (
       <img className="ProgressSidebar__logo" src={logo} alt="Cilantro Health logo"/>
       <h1 className="ProgressSidebar__title">Cilantro Health</h1>
       <div className="ProgressSidebar__steps">
-        { steps.map(step => <div>{step}</div>) }
+        { steps.map((step, i) => <div key={i}>{step}</div>) }
       </div>
     </div>
   </div>

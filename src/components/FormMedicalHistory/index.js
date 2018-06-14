@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Input from 'react-toolbox/lib/input/Input';
 
-import '../../../assets/react-toolbox/theme.css';
+import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
 class FormMedicalHistory extends Component {
@@ -13,14 +12,11 @@ class FormMedicalHistory extends Component {
           className="FormMedicalHistory__input"
           type="text"
           label="Medical history"
-          onChange={()=>{}} 
+          onChange={()=>{}}
         />
       </div>
     );
   }
 }
-
-FormMedicalHistory.propTypes = {
-};
 
 export default FormMedicalHistory;

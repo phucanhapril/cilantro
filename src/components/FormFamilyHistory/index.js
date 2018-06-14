@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Input from 'react-toolbox/lib/input/Input';
 
-import '../../../assets/react-toolbox/theme.css';
+import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
 class FormFamilyHistory extends Component {
@@ -13,14 +12,11 @@ class FormFamilyHistory extends Component {
           className="FormFamilyHistory__input"
           type="text"
           label="Family history"
-          onChange={()=>{}} 
+          onChange={()=>{}}
         />
       </div>
     );
   }
 }
-
-FormFamilyHistory.propTypes = {
-};
 
 export default FormFamilyHistory;

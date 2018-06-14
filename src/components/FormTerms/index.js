@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-import '../../../assets/react-toolbox/theme.css';
+import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
 class FormTerms extends Component {
@@ -30,8 +29,5 @@ class FormTerms extends Component {
     );
   }
 }
-
-FormTerms.propTypes = {
-};
 
 export default FormTerms;
