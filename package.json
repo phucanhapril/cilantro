@@ -28,12 +28,15 @@
       "INPUT"
     ],
     "customProperties": {
-      "animation-duration": "0.3s",
+      "animation-duration": "0.2s",
+      "color-primary": "#64bcae",
+      "color-primary-dark": "#3cad9b",
+      "color-primary-contrast": "var(--color-dark-contrast)",
       "color-accent": "var(--palette-pink-a200)",
       "color-accent-dark": "var(--palette-pink-700)",
-      "color-primary-contrast": "var(--color-dark-contrast)",
-      "color-accent-contrast": "var(--color-dark-contrast)"
+      "color-accent-contrast": "var(--color-dark-contrast)",
+      "preferred-font": "'Karla', sans-serif"
     },
-    "output": "assets/react-toolbox"
+    "output": "src/assets/react-toolbox"
   }
 }
