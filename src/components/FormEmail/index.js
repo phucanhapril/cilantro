@@ -1,43 +1,58 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Formik } from 'formik';
 import Button from 'react-toolbox/lib/button/Button';
 import Input from 'react-toolbox/lib/input/Input';
+import { Validation } from '../../utils';
 
 import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
 class FormEmail extends Component {
   render() {
-    const { error, onBlur, onChange, onContinue, value } = this.props;
+    const { formData, onContinue, submitForm } = this.props;
     return (
-      <div className="FormEmail">
-        <Input
-          className="FormEmail__input"
-          type="email"
-          label="Enter your email address to begin"
-          value={value}
-          onChange={value => onChange('email', value)}
-          onBlur={() => onBlur('email', true)}
-          error={error}
-          required
-        />
-        <Button
-          label="Continue"
-          onClick={onContinue}
-          disabled={error ? true : false}
-          raised
-        />
-      </div>
+      <Formik
+        className="FormEmail"
+        initialValues={formData}
+        validationSchema={Validation.EmailSchema}
+        onSubmit={onContinue}
+        render={({
+          values,
+          errors,
+          touched,
+          dirty,
+          setFieldValue,
+          setFieldTouched
+        }) => (
+          <form>
+            <Input
+              className="FormEmail__input"
+              type="email"
+              label="Enter your email address to begin"
+              value={values.email}
+              onChange={value => setFieldValue('email', value)}
+              onBlur={() => setFieldTouched('email', true)}
+              error={touched.email && errors.email}
+              required
+            />
+            <Button
+              label={submitForm ? 'Submit' : 'Continue'}
+              onClick={onContinue}
+              disabled={!dirty || (errors.email ? true : false)}
+              raised
+            />
+          </form>
+        )}
+      />
     );
   }
 }
 
 FormEmail.propTypes = {
-  error: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
+  formData: PropTypes.object,
   onContinue: PropTypes.func,
-  value: PropTypes.string
+  submitForm: PropTypes.bool
 };
 
 export default FormEmail;

@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { Formik } from 'formik';
-import Button from 'react-toolbox/lib/button/Button';
-import { Validation } from '../../utils';
-
 import FormEmail from '../FormEmail';
 import FormBasics from '../FormBasics';
 import FormMedicalHistory from '../FormMedicalHistory';
@@ -14,77 +10,93 @@ import ProgressSidebar from '../ProgressSidebar';
 import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
+const PatientIngestSteps = [
+  'Email',
+  'Basics',
+  'Medical History',
+  'Family History',
+  'Terms',
+  'Summary'
+];
+
 class PatientIngest extends Component {
   constructor(props) {
     super(props);
-    this.state = { step: 0 };
+    this.state = {
+      formData: {
+        email: '',
+        firstName: '',
+        lastName: '',
+        dob: '',
+        gender: '',
+        maritalStatus: '',
+        phone: '',
+        address: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        conditions: [],
+        medications: [],
+        allergies: [],
+        operations: [],
+        familyConditions: {},
+        acceptTerms: false
+      },
+      step: 0
+    };
   }
 
-  handleValidation = values => Validation.validatePatientIngest(values);
-  handleContinue = () => this.setState({ step: this.state.step + 1 });
+  handleContinue = values => this.setState({
+    formData: { ...this.state.formData, ...values },
+    step: this.state.step + 1
+  });
   handleSubmit = values => console.log('payload:', values);
 
-  steps = [
-    'Email',
-    'Basics',
-    'Medical History',
-    'Family History',
-    'Terms',
-    'Summary'
-  ];
-
   render() {
-    const { step } = this.state;
-    const initialFormValues = {
-      email: ''
-    };
+    const { formData, step } = this.state;
     return (
       <div className="PatientIngest">
         <div className="PatientIngest__sidebar">
-          <ProgressSidebar step={step} steps={this.steps} />
+          <ProgressSidebar step={step} steps={PatientIngestSteps} />
         </div>
         <div className="PatientIngest__form">
-          <Formik
-            initialValues={initialFormValues}
-            validate={this.handleValidation}
-            onSubmit={this.handleSubmit}
-            render={({ values, errors, touched, setFieldValue, setFieldTouched }) => (
-              <form>
-                {step === 0 && (
-                  <FormEmail
-                    value={values.email}
-                    error={touched.email && errors.email}
-                    onChange={setFieldValue}
-                    onBlur={setFieldTouched}
-                    onContinue={this.handleContinue}
-                    canContinue={touched.email && !errors.email}
-                  />
-                )}
-                {step === 1 && (
-                  <FormBasics />
-                )}
-                {step === 2 && (
-                  <FormMedicalHistory />
-                )}
-                {step === 3 && (
-                  <FormFamilyHistory />
-                )}
-                {step === 4 && (
-                  <FormTerms />
-                )}
-                {step === 5 && (
-                  <div className="PatientIngest__submit-page">
-                    <FormSummary />
-                    <Button
-                      label="Submit"
-                      onClick={this.handleSubmit(values)}
-                      raised
-                    />
-                  </div>
-                )}
-              </form>
-            )}
-          />
+          {step === 0 && (
+            <FormEmail
+              formData={formData}
+              onContinue={this.handleContinue}
+            />
+          )}
+          {step === 1 && (
+            <FormBasics
+              formData={formData}
+              onContinue={this.handleContinue}
+            />
+          )}
+          {step === 2 && (
+            <FormMedicalHistory
+              formData={formData}
+              onContinue={this.handleContinue}
+            />
+          )}
+          {step === 3 && (
+            <FormFamilyHistory
+              formData={formData}
+              onContinue={this.handleContinue}
+            />
+          )}
+          {step === 4 && (
+            <FormTerms
+              formData={formData}
+              onContinue={this.handleContinue}
+            />
+          )}
+          {step === 5 && (
+            <FormSummary
+              formData={formData}
+              onContinue={this.handleSubmit}
+              submitForm={true}
+            />
+          )}
         </div>
       </div>
     );

@@ -1,11 +1,18 @@
-export const validatePatientIngest = values => {
-  let errors = {};
-  if (!values.email) {
-    errors.email = 'Required';
-  } else if (
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-  ) {
-    errors.email = 'Invalid email address';
-  }
-  return errors;
-};
+import * as Yup from 'yup';
+
+export const EmailSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+});
+
+export const BasicsSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .min(2, 'Must be longer than 2 characters')
+    .max(20, 'Nice try, nobody has a first name that long')
+    .required('Required'),
+  lastName: Yup.string()
+    .min(2, 'Must be longer than 2 characters')
+    .max(20, 'Nice try, nobody has a last name that long')
+    .required('Required'),
+})
