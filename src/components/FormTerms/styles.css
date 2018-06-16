@@ -1,3 +1,14 @@
 .FormTerms__title {
   margin-top: 0;
 }
+
+.FormTerms__continue-button {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.FormTerms__accept-error {
+  color: red;
+  display: inline-block;
+  font-size: 14px;
+}

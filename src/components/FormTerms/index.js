@@ -1,7 +1,12 @@
 import React  from 'react';
+import PropTypes from 'prop-types';
+import { Formik } from 'formik';
+import Button from 'react-toolbox/lib/button/Button';
+import Checkbox from 'react-toolbox/lib/checkbox/Checkbox';
+import { Validation } from '../../utils';
 import './styles.css';
 
-const FormTerms = () => (
+const FormTerms = ({ formData, onContinue, submitForm }) => (
   <div className="FormTerms">
     <div className="FormTerms__terms">
       <h1 className="FormTerms__title">Terms of Agreement</h1>
@@ -21,7 +26,48 @@ const FormTerms = () => (
         Ethical kale chips sartorial occupy austin lyft synth prism kogi pug lo-fi try-hard deep v mixtape scenester. Bitters cronut mixtape tumblr narwhal. Leggings cornhole wolf, chambray meggings cred sartorial narwhal brunch banh mi tumblr chartreuse. Vaporware post-ironic bushwick, yuccie kale chips kogi butcher. Cold-pressed pitchfork hella, taiyaki literally meh synth umami celiac flannel tbh humblebrag. Literally cornhole cray wolf shabby chic iPhone. Taxidermy offal echo park, scenester mustache chambray woke la croix food truck health goth polaroid subway tile snackwave.
       </p>
     </div>
+
+    <Formik
+      className="FormTerms__accept"
+      initialValues={formData}
+      validationSchema={Validation.TermsSchema}
+      onSubmit={onContinue}
+      render={({
+        values,
+        errors,
+        touched,
+        dirty,
+        setFieldValue,
+        setFieldTouched
+      }) => (
+        <form>
+          <Checkbox
+            className="FormTerms__accept-checkbox"
+            label={'I have read the terms and agree to the conditions above.'}
+            checked={values.acceptTerms}
+            onChange={value => setFieldValue('acceptTerms', value)}
+            onBlur={() => setFieldTouched('acceptTerms', true)}
+          />
+          <Button
+            className="FormTerms__continue-button"
+            label={submitForm ? 'Submit' : 'Continue'}
+            onClick={() => onContinue(values)}
+            disabled={!dirty || (errors.acceptTerms ? true : false)}
+            raised
+          />
+          <p className="FormTerms__accept-error">
+            {touched.acceptTerms && errors.acceptTerms}
+          </p>
+        </form>
+      )}
+    />
   </div>
 );
+
+FormTerms.propTypes = {
+  formData: PropTypes.object,
+  onContinue: PropTypes.func,
+  submitForm: PropTypes.bool
+};
 
 export default FormTerms;

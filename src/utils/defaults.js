@@ -120,7 +120,7 @@ export const conditions = [
   'Arthritis',
   'Asthma',
   'Dementia',
-  'Depression'
+  'ADD/ADHD'
 ];
 
 // http://www.mapharm.com/forms_meds.htm

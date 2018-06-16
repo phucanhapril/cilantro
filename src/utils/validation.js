@@ -39,3 +39,13 @@ export const BasicsSchema = Yup.object().shape({
       }
     )
 });
+
+export const TermsSchema = Yup.object().shape({
+  acceptTerms: Yup.boolean()
+    .required('Required')
+    .test(
+      'terms-accepted',
+      'You must agree to the terms to continue.',
+      value => value
+    )
+});
