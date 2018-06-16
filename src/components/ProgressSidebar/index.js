@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import logo from '../../assets/icon.svg';
-import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
 const ProgressSidebar = ({ progress, steps }) => (

@@ -5,7 +5,6 @@ import Button from 'react-toolbox/lib/button/Button';
 import Input from 'react-toolbox/lib/input/Input';
 import { Validation } from '../../utils';
 
-import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
 const FormEmail = ({ formData, onContinue, submitForm }) => (

@@ -57,6 +57,7 @@ const FormMedicalHistory = ({ formData, onContinue, submitForm }) => (
             Please list any medications you are currently taking including non-prescription medications, vitamins, and supplements.
           </p>
           <CreatableSelect
+            className="FormMedicalHistory__multiselect"
             value={values.medications.map(m => ({ value: m, label: m }))}
             options={Defaults.commonMeds}
             onChange={value =>

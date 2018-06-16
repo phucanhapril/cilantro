@@ -6,7 +6,6 @@ import Dropdown from 'react-toolbox/lib/dropdown/Dropdown';
 import Input from 'react-toolbox/lib/input/Input';
 import { Defaults, Validation } from '../../utils';
 
-import '../../assets/react-toolbox/theme.css';
 import './styles.css';
 
 const CurrentYear = new Date().getFullYear();

@@ -13,13 +13,28 @@
 
 .FormMedicalHistory__sublabel {
   font-size: 14px;
-  margin-top: 0;
+  margin: 0;
+}
+
+.FormMedicalHistory__multiselect {
+  margin-top: 16px;
 }
 
 .FormMedicalHistory__habit {
   margin-bottom: 16px;
 }
 
-.FormMedicalHistory__habit-switch {
+label.FormMedicalHistory__habit-switch {
   margin-bottom: 0;
+}
+
+@media (min-width: 750px) {
+  .FormMedicalHistory__conditions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .FormMedicalHistory__condition-checkbox {
+    width: 50%;
+  }
 }

@@ -104,14 +104,13 @@ export const conditions = [
   'Genetic disorder',
   'Hypertension',
   'Heart attack',
-  'Chronic obstructive pulmonary disease',
+  'Chronic bronchitis',
   'Hepatitis',
   'Back pain',
   'Psychotic disorder',
   'Irritable bowel syndrome',
   'Seizures',
   'Substance abuse',
-  'Depression',
   'Kidney disease',
   'HIV',
   'Gastro esophageal reflux disease',
@@ -119,7 +118,9 @@ export const conditions = [
   'Bipolar',
   'Eye disease',
   'Arthritis',
-  'Asthma'
+  'Asthma',
+  'Dementia',
+  'Depression'
 ];
 
 // http://www.mapharm.com/forms_meds.htm
