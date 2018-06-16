@@ -1,0 +1,25 @@
+.FormBasics__input {
+  margin-right: 16px;
+}
+
+.FormBasics__label {
+  margin: 24px 0 0 0;
+}
+
+@media (min-width: 550px) {
+  .FormBasics__name {
+    display: flex;
+  }
+
+  .FormBasics__dob {
+    display: flex;
+  }
+
+  .FormBasics__address2 {
+    display: flex;
+  }
+
+  .FormBasics__city {
+    width: 50%;
+  }
+}
