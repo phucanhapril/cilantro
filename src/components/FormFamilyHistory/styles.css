@@ -1,0 +1,24 @@
+.FormFamilyHistory__label {
+  margin: 0;
+  font-size: 1.25em;
+}
+
+.FormFamilyHistory__sublabel {
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.FormFamilyHistory__family-checkbox {
+  margin-left: 24px;
+}
+
+@media (min-width: 750px) {
+  .FormFamilyHistory__family {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .FormFamilyHistory__family-checkbox {
+    width: 40%;
+  }
+}

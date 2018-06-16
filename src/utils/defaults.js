@@ -165,3 +165,13 @@ export const habits = [
 ];
 
 export const habitFreq = 'frequency n/a';
+
+export const familyMembers = [
+  { value: 'mother', label: 'Mother' },
+  { value: 'father', label: 'Father' },
+  { value: 'mgrandmother', label: 'Maternal grandmother' },
+  { value: 'mgrandfather', label: 'Maternal grandfather' },
+  { value: 'pgrandmother', label: 'Paternal grandmother' },
+  { value: 'pgrandfather', label: 'Paternal grandfather' },
+  { value: 'sibling', label: 'Sibling' }
+];

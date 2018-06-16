@@ -42,10 +42,10 @@ class PatientIngest extends Component {
         allergies: '',
         operations: '',
         habits: {},
-        familyConditions: {},
+        familyHistory: {},
         acceptTerms: false
       },
-      step: 2
+      step: 3
     };
   }
 
