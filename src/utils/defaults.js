@@ -15,16 +15,16 @@ export const months = [
 
 // https://www.hrc.org/resources/lgbt-inclusive-intake-forms
 export const genders = [
-  { value: 'f', label: 'Female' },
-  { value: 'm', label: 'Male' },
-  { value: 'ftm', label: 'Female-to-male' },
-  { value: 'mtf', label: 'Male-to-female' }
+  { value: 'female', label: 'Female' },
+  { value: 'male', label: 'Male' },
+  { value: 'female-to-male', label: 'Female-to-male' },
+  { value: 'male-to-female', label: 'Male-to-female' }
 ];
 
 export const maritalStatuses = [
   { value: 'single', label: 'Single' },
   { value: 'married', label: 'Married' },
-  { value: 'domestic-partnership', label: 'Domestic partnership' },
+  { value: 'domestic partnership', label: 'Domestic partnership' },
   { value: 'divorced', label: 'Divorced' },
   { value: 'widowed', label: 'Widowed' }
 ];
@@ -169,9 +169,9 @@ export const habitFreq = 'frequency n/a';
 export const familyMembers = [
   { value: 'mother', label: 'Mother' },
   { value: 'father', label: 'Father' },
-  { value: 'mgrandmother', label: 'Maternal grandmother' },
-  { value: 'mgrandfather', label: 'Maternal grandfather' },
-  { value: 'pgrandmother', label: 'Paternal grandmother' },
-  { value: 'pgrandfather', label: 'Paternal grandfather' },
+  { value: 'maternal grandmother', label: 'Maternal grandmother' },
+  { value: 'maternal grandfather', label: 'Maternal grandfather' },
+  { value: 'paternal grandmother', label: 'Paternal grandmother' },
+  { value: 'paternal grandfather', label: 'Paternal grandfather' },
   { value: 'sibling', label: 'Sibling' }
 ];

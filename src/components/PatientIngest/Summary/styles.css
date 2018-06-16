@@ -1,0 +1,25 @@
+.PatientIngestSummary__title {
+  margin: 0;
+}
+
+.PatientIngestSummary__label {
+  font-size: 1.25em;
+  margin-bottom: 0;
+}
+
+.PatientIngestSummary__sublabel {
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
+.PatientIngestSummary__data-review {
+  font-size: 14px;
+}
+
+.PatientIngestSummary__family-condition {
+  margin: 0;
+}
+
+.PatientIngestSummary__submit-button {
+  margin-top: 24px;
+}

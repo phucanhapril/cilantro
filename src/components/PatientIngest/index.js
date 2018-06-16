@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import FormEmail from '../FormEmail';
 import FormBasics from '../FormBasics';
-import FormMedicalHistory from '../FormMedicalHistory';
-import FormFamilyHistory from '../FormFamilyHistory';
+import FormMedical from '../FormMedicalHistory';
+import FormFamily from '../FormFamilyHistory';
 import FormTerms from '../FormTerms';
-import FormSummary from '../FormSummary';
+import Summary from './Summary';
 import ProgressSidebar from '../ProgressSidebar';
 
 import '../../assets/react-toolbox/theme.css';
@@ -25,27 +25,27 @@ class PatientIngest extends Component {
     this.state = {
       formData: {
         email: '',
-        firstName: '',
-        lastName: '',
-        gender: '',
-        maritalStatus: '',
-        dobDay: '',
-        dobMonth: '',
-        dobYear: '',
-        address: '',
-        city: '',
-        state: '',
-        zipcode: '',
-        phone: '',
+        firstName: undefined,
+        lastName: undefined,
+        gender: undefined,
+        maritalStatus: undefined,
+        dobDay: undefined,
+        dobMonth: undefined,
+        dobYear: undefined,
+        address: undefined,
+        city: undefined,
+        state: undefined,
+        zipcode: undefined,
+        phone: undefined,
         conditions: [],
         medications: [],
-        allergies: '',
-        operations: '',
+        allergies: undefined,
+        operations: undefined,
         habits: {},
         familyHistory: {},
-        acceptTerms: false
+        acceptTerms: true
       },
-      step: 3
+      step: 0
     };
   }
 
@@ -64,41 +64,22 @@ class PatientIngest extends Component {
         </div>
         <div className="PatientIngest__form">
           {step === 0 && (
-            <FormEmail
-              formData={formData}
-              onContinue={this.handleContinue}
-            />
+            <FormEmail formData={formData} onContinue={this.handleContinue} />
           )}
           {step === 1 && (
-            <FormBasics
-              formData={formData}
-              onContinue={this.handleContinue}
-            />
+            <FormBasics formData={formData} onContinue={this.handleContinue} />
           )}
           {step === 2 && (
-            <FormMedicalHistory
-              formData={formData}
-              onContinue={this.handleContinue}
-            />
+            <FormMedical formData={formData} onContinue={this.handleContinue} />
           )}
           {step === 3 && (
-            <FormFamilyHistory
-              formData={formData}
-              onContinue={this.handleContinue}
-            />
+            <FormFamily formData={formData} onContinue={this.handleContinue} />
           )}
           {step === 4 && (
-            <FormTerms
-              formData={formData}
-              onContinue={this.handleContinue}
-            />
+            <FormTerms formData={formData} onContinue={this.handleContinue} />
           )}
           {step === 5 && (
-            <FormSummary
-              formData={formData}
-              onContinue={this.handleSubmit}
-              submitForm={true}
-            />
+            <Summary formData={formData} onSubmit={this.handleSubmit} />
           )}
         </div>
       </div>
