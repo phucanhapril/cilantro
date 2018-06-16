@@ -1,0 +1,25 @@
+.FormMedicalHistory__label {
+  margin: 32px 0 16px 0;
+  font-size: 1.25em;
+}
+
+.FormMedicalHistory__label:first-child {
+  margin-top: 0;
+}
+
+.FormMedicalHistory__label--with-sublabel {
+  margin-bottom: 0;
+}
+
+.FormMedicalHistory__sublabel {
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.FormMedicalHistory__habit {
+  margin-bottom: 16px;
+}
+
+.FormMedicalHistory__habit-switch {
+  margin-bottom: 0;
+}

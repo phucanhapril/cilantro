@@ -88,3 +88,79 @@ export const usStates = [
   { value: 'WV', label: 'WV' },
   { value: 'WY', label: 'WY' },
 ];
+
+export const conditions = [
+  'Cancer',
+  'Heart disease',
+  'Diabetes',
+  'Stroke',
+  'High blood pressure',
+  'High cholesterol',
+  'Liver disease',
+  'Alcohol/drug abuse',
+  'Anxiety/depression',
+  'Tuberculosis',
+  'Anesthesia complications',
+  'Genetic disorder',
+  'Hypertension',
+  'Heart attack',
+  'Chronic obstructive pulmonary disease',
+  'Hepatitis',
+  'Back pain',
+  'Psychotic disorder',
+  'Irritable bowel syndrome',
+  'Seizures',
+  'Substance abuse',
+  'Depression',
+  'Kidney disease',
+  'HIV',
+  'Gastro esophageal reflux disease',
+  'Thyroid disease',
+  'Bipolar',
+  'Eye disease',
+  'Arthritis',
+  'Asthma'
+];
+
+// http://www.mapharm.com/forms_meds.htm
+export const commonMeds = [
+  { value: 'Vicodin', label: 'Vicodin' },
+  { value: 'Hydrocodone', label: 'Hydrocodone' },
+  { value: 'Lortab', label: 'Lortab' },
+  { value: 'Oxycontin', label: 'Oxycontin' },
+  { value: 'Percocet', label: 'Percocet' },
+  { value: 'Clarocet NRI', label: 'Clarocet NRI' },
+  { value: 'Alprazolam', label: 'Alprazolam' },
+  { value: 'Ambien', label: 'Ambien' },
+  { value: 'Ativan', label: 'Ativan' },
+  { value: 'Diazepam', label: 'Diazepam' },
+  { value: 'Adipex', label: 'Adipex' },
+  { value: 'Phentermine', label: 'Phentermine' },
+  { value: 'Renova', label: 'Renova' },
+  { value: 'Retin-A', label: 'Retin-A' },
+  { value: 'Vaniqa', label: 'Vaniqa' },
+  { value: 'Sustanon', label: 'Sustanon' },
+  { value: 'Deca Durabolin', label: 'Deca Durabolin' },
+  { value: 'Max Vitality', label: 'Max Vitality' },
+  { value: 'Max Breasts', label: 'Max Breasts' },
+  { value: 'Viagra', label: 'Viagra' },
+  { value: 'Propecia', label: 'Propecia' },
+  { value: 'Zyban', label: 'Zyban' },
+  { value: 'Ortho Tri Cyclen', label: 'Ortho Tri Cyclen' },
+  { value: 'B Vitamins', label: 'B Vitamins' },
+  { value: 'Calcium', label: 'Calcium' },
+  { value: 'Coenzyme Q10', label: 'Coenzyme Q10' },
+  { value: 'Fish Oil', label: 'Fish Oil' },
+  { value: 'Folic Acid', label: 'Folic Acid' },
+  { value: 'Iron', label: 'Iron' },
+  { value: 'Melatonin', label: 'Melatonin' },
+  { value: 'Multivitamins', label: 'Multivitamins' }
+];
+
+export const habits = [
+  { name: 'alcohol', question: 'Do you drink alcohol?' },
+  { name: 'tobacco', question: 'Do you smoke any tobacco products?' },
+  { name: 'drugs', question: 'Have you regularly used illicit drugs?' }
+];
+
+export const habitFreq = 'frequency n/a';

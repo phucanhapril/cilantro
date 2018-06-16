@@ -37,5 +37,5 @@ export const BasicsSchema = Yup.object().shape({
         const regex = /^\(\d{3}\)\d{3}-\d{4}$/;
         return value && value.trim().match(regex) ? true : false;
       }
-    ),
-})
+    )
+});

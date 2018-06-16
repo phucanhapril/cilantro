@@ -39,12 +39,13 @@ class PatientIngest extends Component {
         phone: '',
         conditions: [],
         medications: [],
-        allergies: [],
-        operations: [],
+        allergies: '',
+        operations: '',
+        habits: {},
         familyConditions: {},
         acceptTerms: false
       },
-      step: 0
+      step: 2
     };
   }
 
