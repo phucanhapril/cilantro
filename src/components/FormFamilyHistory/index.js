@@ -10,7 +10,7 @@ import './styles.css';
 const FormFamilyHistory = ({ formData, onContinue, submitForm }) => (
   <Formik
     className="FormFamilyHistory"
-    initialValues={formData}
+    initialValues={{ familyHistory: formData.familyHistory || {} }}
     onSubmit={onContinue}
     render={({
       values,
@@ -22,11 +22,10 @@ const FormFamilyHistory = ({ formData, onContinue, submitForm }) => (
     }) => {
       return (
         <form>
-          <p className="FormFamilyHistory__label">
-            Family medical history
-          </p>
+          <p className="FormFamilyHistory__label">Family medical history</p>
           <p className="FormFamilyHistory__sublabel">
-            Please select any medical conditions that a family member has experienced.
+            Please select any medical conditions that a family member has
+            experienced.
           </p>
           <div className="FormFamilyHistory__conditions">
             {Defaults.conditions.sort().map(c => (
@@ -37,18 +36,22 @@ const FormFamilyHistory = ({ formData, onContinue, submitForm }) => (
                   checked={Object.keys(values.familyHistory).includes(c)}
                   onChange={value => {
                     if (value) {
-                      setFieldValue(
-                        'familyHistory', { ...values.familyHistory, [c]: [] }
-                      );
+                      setFieldValue('familyHistory', {
+                        ...values.familyHistory,
+                        [c]: []
+                      });
                     } else {
-                      let {[c]: old, ...updatedHistory} = values.familyHistory;
+                      let {
+                        [c]: old,
+                        ...updatedHistory
+                      } = values.familyHistory;
                       setFieldValue('familyHistory', updatedHistory);
                     }
                   }}
                 />
                 {Object.keys(values.familyHistory).includes(c) && (
                   <div className="FormFamilyHistory__family">
-                    {Defaults.familyMembers.map(fam =>
+                    {Defaults.familyMembers.map(fam => (
                       <Checkbox
                         key={`${c}-${fam.value}`}
                         className="FormFamilyHistory__family-checkbox"
@@ -56,27 +59,21 @@ const FormFamilyHistory = ({ formData, onContinue, submitForm }) => (
                         checked={values.familyHistory[c].includes(fam.value)}
                         onChange={value => {
                           if (value) {
-                            setFieldValue(
-                              'familyHistory',
-                              {
-                                ...values.familyHistory,
-                                [c]: [...values.familyHistory[c], fam.value]
-                              }
-                            );
+                            setFieldValue('familyHistory', {
+                              ...values.familyHistory,
+                              [c]: [...values.familyHistory[c], fam.value]
+                            });
                           } else {
-                            setFieldValue(
-                              'familyHistory',
-                              {
-                                ...values.familyHistory,
-                                [c]: values.familyHistory[c].filter(f =>
-                                  f !== fam.value
-                                )
-                              }
-                            );
+                            setFieldValue('familyHistory', {
+                              ...values.familyHistory,
+                              [c]: values.familyHistory[c].filter(
+                                f => f !== fam.value
+                              )
+                            });
                           }
                         }}
                       />
-                    )}
+                    ))}
                   </div>
                 )}
               </div>

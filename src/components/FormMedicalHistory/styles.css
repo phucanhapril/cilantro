@@ -4,7 +4,7 @@
 }
 
 .FormMedicalHistory__label:first-child {
-  margin-top: 0;
+  margin-top: 8px;
 }
 
 .FormMedicalHistory__label--with-sublabel {

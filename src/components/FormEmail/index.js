@@ -10,7 +10,7 @@ import './styles.css';
 const FormEmail = ({ formData, onContinue, submitForm }) => (
   <Formik
     className="FormEmail"
-    initialValues={formData}
+    initialValues={{ email: formData.email || '' }}
     validationSchema={Validation.EmailSchema}
     onSubmit={onContinue}
     render={({
@@ -21,7 +21,7 @@ const FormEmail = ({ formData, onContinue, submitForm }) => (
       setFieldValue,
       setFieldTouched
     }) => (
-      <form>
+      <form className="FormEmail__form">
         <Input
           className="FormEmail__input"
           type="email"

@@ -39,6 +39,9 @@
   }
 
   .ProgressSidebar__content {
+    align-content: center;
+    align-items: center;
+    height: 80%;
     justify-content: flex-end;
   }
 
@@ -51,6 +54,7 @@
 
   .ProgressSidebar__title {
     font-size: 48px;
+    margin-bottom: 64px;
     text-align: right;
     width: 100%;
   }
@@ -58,6 +62,11 @@
   .ProgressSidebar__steps {
     display: block;
     height: 72px;
+    text-align: right;
     width: 100%;
+  }
+
+  .ProgressSidebar__step--active {
+    text-decoration: underline;
   }
 }

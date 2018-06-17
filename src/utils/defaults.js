@@ -1,8 +1,8 @@
 export const months = [
   { value: 1, label: 'January' },
-  { value: 2, label: 'February'},
+  { value: 2, label: 'February' },
   { value: 3, label: 'March' },
-  { value: 4, label: 'April'},
+  { value: 4, label: 'April' },
   { value: 5, label: 'May' },
   { value: 6, label: 'June' },
   { value: 7, label: 'July' },
@@ -86,7 +86,7 @@ export const usStates = [
   { value: 'WA', label: 'WA' },
   { value: 'WI', label: 'WI' },
   { value: 'WV', label: 'WV' },
-  { value: 'WY', label: 'WY' },
+  { value: 'WY', label: 'WY' }
 ];
 
 export const conditions = [

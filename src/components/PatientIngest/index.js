@@ -23,36 +23,17 @@ class PatientIngest extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: {
-        email: '',
-        firstName: undefined,
-        lastName: undefined,
-        gender: undefined,
-        maritalStatus: undefined,
-        dobDay: undefined,
-        dobMonth: undefined,
-        dobYear: undefined,
-        address: undefined,
-        city: undefined,
-        state: undefined,
-        zipcode: undefined,
-        phone: undefined,
-        conditions: [],
-        medications: [],
-        allergies: undefined,
-        operations: undefined,
-        habits: {},
-        familyHistory: {},
-        acceptTerms: true
-      },
-      step: 0
+      formData: {},
+      step: 3
     };
   }
 
-  handleContinue = values => this.setState({
-    formData: { ...this.state.formData, ...values },
-    step: this.state.step + 1
-  });
+  handleBack = () => this.setState({ step: this.state.step - 1 });
+  handleContinue = values =>
+    this.setState({
+      formData: { ...this.state.formData, ...values },
+      step: this.state.step + 1
+    });
   handleSubmit = values => console.log('payload:', values);
 
   render() {
@@ -60,9 +41,14 @@ class PatientIngest extends Component {
     return (
       <div className="PatientIngest">
         <div className="PatientIngest__sidebar">
-          <ProgressSidebar step={step} steps={PatientIngestSteps} />
+          <ProgressSidebar progress={step} steps={PatientIngestSteps} />
         </div>
         <div className="PatientIngest__form">
+          {step > 0 && (
+            <p className="PatientIngest__back" onClick={this.handleBack}>
+              ← Back
+            </p>
+          )}
           {step === 0 && (
             <FormEmail formData={formData} onContinue={this.handleContinue} />
           )}

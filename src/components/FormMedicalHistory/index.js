@@ -14,7 +14,13 @@ import './styles.css';
 const FormMedicalHistory = ({ formData, onContinue, submitForm }) => (
   <Formik
     className="FormMedicalHistory"
-    initialValues={formData}
+    initialValues={{
+      conditions: formData.conditions || [],
+      medications: formData.medications || [],
+      allergies: formData.allergies || '',
+      operations: formData.operations || '',
+      habits: formData.habits || {}
+    }}
     onSubmit={onContinue}
     render={({
       values,
@@ -28,7 +34,7 @@ const FormMedicalHistory = ({ formData, onContinue, submitForm }) => (
         <form>
           <p className="FormMedicalHistory__label">Medical conditions</p>
           <div className="FormMedicalHistory__conditions">
-            {Defaults.conditions.sort().map(condition =>
+            {Defaults.conditions.sort().map(condition => (
               <Checkbox
                 key={condition}
                 className="FormMedicalHistory__condition-checkbox"
@@ -36,25 +42,27 @@ const FormMedicalHistory = ({ formData, onContinue, submitForm }) => (
                 checked={values.conditions.includes(condition)}
                 onChange={value => {
                   if (value && !values.conditions.includes(condition)) {
-                    setFieldValue(
-                      'conditions', [...values.conditions, condition]
-                    );
+                    setFieldValue('conditions', [
+                      ...values.conditions,
+                      condition
+                    ]);
                   } else if (!value) {
                     setFieldValue(
                       'conditions',
-                      values.conditions.filter(c => c!== condition)
+                      values.conditions.filter(c => c !== condition)
                     );
                   }
                 }}
               />
-            )}
+            ))}
           </div>
 
           <p className="FormMedicalHistory__label FormMedicalHistory__label--with-sublabel">
             Medications and allergies
           </p>
           <p className="FormMedicalHistory__sublabel">
-            Please list any medications you are currently taking including non-prescription medications, vitamins, and supplements.
+            Please list any medications you are currently taking including
+            non-prescription medications, vitamins, and supplements.
           </p>
           <CreatableSelect
             className="FormMedicalHistory__multiselect"
@@ -78,7 +86,8 @@ const FormMedicalHistory = ({ formData, onContinue, submitForm }) => (
             Surgeries and hospitalizations
           </p>
           <p className="FormMedicalHistory__sublabel">
-            List any surgeries or hospital stays you have had and their approximate date/year.
+            List any surgeries or hospital stays you have had and their
+            approximate date/year.
           </p>
           <Input
             className="FormMedicalHistory__input"
@@ -89,7 +98,7 @@ const FormMedicalHistory = ({ formData, onContinue, submitForm }) => (
 
           <p className="FormMedicalHistory__label">Lifestyle</p>
           <div className="FormMedicalHistory__habits">
-            {Defaults.habits.map((habit, i) =>
+            {Defaults.habits.map((habit, i) => (
               <div
                 className="FormMedicalHistory__habit"
                 key={`habit-${habit.name}`}
@@ -100,12 +109,12 @@ const FormMedicalHistory = ({ formData, onContinue, submitForm }) => (
                   checked={Object.keys(values.habits).includes(habit.name)}
                   onChange={value => {
                     if (value) {
-                      setFieldValue(
-                        'habits',
-                        { ...values.habits, [habit.name]: Defaults.habitFreq}
-                      );
+                      setFieldValue('habits', {
+                        ...values.habits,
+                        [habit.name]: Defaults.habitFreq
+                      });
                     } else {
-                      let {[habit.name]: o, ...updatedHabits} = values.habits;
+                      let { [habit.name]: o, ...updatedHabits } = values.habits;
                       setFieldValue('habits', updatedHabits);
                     }
                   }}
@@ -116,25 +125,26 @@ const FormMedicalHistory = ({ formData, onContinue, submitForm }) => (
                     label="How much and how often?"
                     value={
                       values.habits[habit.name] !== Defaults.habitFreq
-                      ? values.habits[habit.name]
-                      : ''
+                        ? values.habits[habit.name]
+                        : ''
                     }
                     onChange={value => {
                       if (value.trim()) {
-                        setFieldValue(
-                          'habits', { ...values.habits, [habit.name]: value }
-                        );
+                        setFieldValue('habits', {
+                          ...values.habits,
+                          [habit.name]: value
+                        });
                       } else {
-                        setFieldValue(
-                          'habits',
-                          { ...values.habits, [habit.name]: Defaults.habitFreq}
-                        );
+                        setFieldValue('habits', {
+                          ...values.habits,
+                          [habit.name]: Defaults.habitFreq
+                        });
                       }
                     }}
                   />
                 )}
               </div>
-            )}
+            ))}
           </div>
 
           <Button

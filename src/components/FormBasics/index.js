@@ -14,7 +14,20 @@ const MaxAge = 120;
 const FormBasics = ({ formData, onContinue, submitForm }) => (
   <Formik
     className="FormBasics"
-    initialValues={formData}
+    initialValues={{
+      firstName: formData.firstName || '',
+      lastName: formData.lastName || '',
+      gender: formData.gender || '',
+      maritalStatus: formData.maritalStatus || '',
+      dobDay: formData.dobDay || undefined,
+      dobMonth: formData.dobMonth || undefined,
+      dobYear: formData.dobYear || undefined,
+      address: formData.address || '',
+      city: formData.city || '',
+      state: formData.state || '',
+      zipcode: formData.zipcode || '',
+      phone: formData.phone || ''
+    }}
     validationSchema={Validation.BasicsSchema}
     onSubmit={onContinue}
     render={({
@@ -88,9 +101,10 @@ const FormBasics = ({ formData, onContinue, submitForm }) => (
               className="FormBasics__input"
               label="Day"
               value={values.dobDay}
-              source={[...Array(31).keys()].map(i =>
-                ({ value: i+1, label: i+1 })
-              )}
+              source={[...Array(31).keys()].map(i => ({
+                value: i + 1,
+                label: i + 1
+              }))}
               onChange={value => setFieldValue('dobDay', value)}
               onBlur={() => setFieldTouched('dobDay', true)}
               error={touched.dobDay && errors.dobDay}
@@ -100,12 +114,10 @@ const FormBasics = ({ formData, onContinue, submitForm }) => (
               className="FormBasics__input"
               label="Year"
               value={values.dobYear}
-              source={[...Array(MaxAge).keys()].map(i =>
-                ({
-                  value: i + CurrentYear - MaxAge + 1,
-                  label: i + CurrentYear - MaxAge + 1
-                })
-              )}
+              source={[...Array(MaxAge).keys()].map(i => ({
+                value: i + CurrentYear - MaxAge + 1,
+                label: i + CurrentYear - MaxAge + 1
+              }))}
               onChange={value => setFieldValue('dobYear', value)}
               onBlur={() => setFieldTouched('dobYear', true)}
               error={touched.dobYear && errors.dobYear}
@@ -172,19 +184,21 @@ const FormBasics = ({ formData, onContinue, submitForm }) => (
             label={submitForm ? 'Submit' : 'Continue'}
             onClick={() => onContinue(values)}
             disabled={
-              !dirty
-              || errors.firstName
-              || errors.lastName
-              || errors.gender
-              || errors.maritalStatus
-              || errors.dobDay
-              || errors.dobMonth
-              || errors.dobYear
-              || errors.address
-              || errors.city
-              || errors.state
-              || errors.zipcode
-              || errors.phone ? true : false
+              !dirty ||
+              errors.firstName ||
+              errors.lastName ||
+              errors.gender ||
+              errors.maritalStatus ||
+              errors.dobDay ||
+              errors.dobMonth ||
+              errors.dobYear ||
+              errors.address ||
+              errors.city ||
+              errors.state ||
+              errors.zipcode ||
+              errors.phone
+                ? true
+                : false
             }
             raised
           />
