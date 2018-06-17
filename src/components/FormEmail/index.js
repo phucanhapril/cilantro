@@ -13,14 +13,7 @@ const FormEmail = ({ formData, onContinue, submitForm }) => (
     initialValues={{ email: formData.email || '' }}
     validationSchema={Validation.EmailSchema}
     onSubmit={onContinue}
-    render={({
-      values,
-      errors,
-      touched,
-      dirty,
-      setFieldValue,
-      setFieldTouched
-    }) => (
+    render={({ values, errors, touched, setFieldValue, setFieldTouched }) => (
       <form className="FormEmail__form">
         <Input
           className="FormEmail__input"
@@ -35,7 +28,7 @@ const FormEmail = ({ formData, onContinue, submitForm }) => (
         <Button
           label={submitForm ? 'Submit' : 'Continue'}
           onClick={() => onContinue(values)}
-          disabled={!dirty || (errors.email ? true : false)}
+          disabled={values.email === '' || (errors.email ? true : false)}
           raised
         />
       </form>

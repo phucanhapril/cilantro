@@ -19,9 +19,9 @@ const FormBasics = ({ formData, onContinue, submitForm }) => (
       lastName: formData.lastName || '',
       gender: formData.gender || '',
       maritalStatus: formData.maritalStatus || '',
-      dobDay: formData.dobDay || undefined,
-      dobMonth: formData.dobMonth || undefined,
-      dobYear: formData.dobYear || undefined,
+      dobDay: formData.dobDay || '',
+      dobMonth: formData.dobMonth || '',
+      dobYear: formData.dobYear || '',
       address: formData.address || '',
       city: formData.city || '',
       state: formData.state || '',
@@ -30,14 +30,7 @@ const FormBasics = ({ formData, onContinue, submitForm }) => (
     }}
     validationSchema={Validation.BasicsSchema}
     onSubmit={onContinue}
-    render={({
-      values,
-      errors,
-      touched,
-      dirty,
-      setFieldValue,
-      setFieldTouched
-    }) => {
+    render={({ values, errors, touched, setFieldValue, setFieldTouched }) => {
       return (
         <form>
           <div className="FormBasics__name">
@@ -184,21 +177,19 @@ const FormBasics = ({ formData, onContinue, submitForm }) => (
             label={submitForm ? 'Submit' : 'Continue'}
             onClick={() => onContinue(values)}
             disabled={
-              !dirty ||
-              errors.firstName ||
-              errors.lastName ||
-              errors.gender ||
-              errors.maritalStatus ||
-              errors.dobDay ||
-              errors.dobMonth ||
-              errors.dobYear ||
-              errors.address ||
-              errors.city ||
-              errors.state ||
-              errors.zipcode ||
-              errors.phone
-                ? true
-                : false
+              (values.firstName === '' &&
+                values.lastName === '' &&
+                values.gender === '' &&
+                values.maritalStatus === '' &&
+                values.dobDay === '' &&
+                values.dobMonth === '' &&
+                values.dobYear === '' &&
+                values.address === '' &&
+                values.city === '' &&
+                values.state === '' &&
+                values.zipcode === '' &&
+                values.phone === '') ||
+              (Object.keys(errors).length ? true : false)
             }
             raised
           />

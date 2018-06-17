@@ -24,7 +24,7 @@ class PatientIngest extends Component {
     super(props);
     this.state = {
       formData: {},
-      step: 3
+      step: 0
     };
   }
 

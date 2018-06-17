@@ -60,22 +60,15 @@ const FormTerms = ({ formData, onContinue, submitForm }) => (
 
     <Formik
       className="FormTerms__accept"
-      initialValues={{ acceptTerms: formData.acceptTerms || false }}
+      initialValues={{ acceptTerms: formData.acceptTerms || '' }}
       validationSchema={Validation.TermsSchema}
       onSubmit={onContinue}
-      render={({
-        values,
-        errors,
-        touched,
-        dirty,
-        setFieldValue,
-        setFieldTouched
-      }) => (
+      render={({ values, errors, touched, setFieldValue, setFieldTouched }) => (
         <form>
           <Checkbox
             className="FormTerms__accept-checkbox"
             label={'I have read the terms and agree to the conditions above.'}
-            checked={values.acceptTerms}
+            checked={values.acceptTerms === true}
             onChange={value => setFieldValue('acceptTerms', value)}
             onBlur={() => setFieldTouched('acceptTerms', true)}
           />
@@ -83,7 +76,9 @@ const FormTerms = ({ formData, onContinue, submitForm }) => (
             className="FormTerms__continue-button"
             label={submitForm ? 'Submit' : 'Continue'}
             onClick={() => onContinue(values)}
-            disabled={!dirty || (errors.acceptTerms ? true : false)}
+            disabled={
+              values.acceptTerms === '' || (errors.acceptTerms ? true : false)
+            }
             raised
           />
           <p className="FormTerms__accept-error">

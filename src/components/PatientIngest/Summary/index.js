@@ -78,7 +78,7 @@ const PatientIngestSummary = ({ formData, onSubmit }) => (
     <Button
       className="PatientIngestSummary__submit-button"
       label="Submit"
-      onClick={() => this.onSubmit(formData)}
+      onClick={() => onSubmit(formData)}
       raised
     />
   </div>

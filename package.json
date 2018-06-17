@@ -7,7 +7,7 @@
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
     "start:prod": "NODE_ENV=production node build/server.js",
-    "pretty": "prettier --write --single-quote src/**/*.js",
+    "pretty": "prettier --write --single-quote \"src/**/*.js\"",
     "toolbox": "react-toolbox-themr"
   },
   "dependencies": {
