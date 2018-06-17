@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Dialog from 'react-toolbox/lib/dialog/Dialog';
 import FormEmail from '../FormEmail';
 import FormBasics from '../FormBasics';
 import FormMedical from '../FormMedicalHistory';
@@ -24,7 +25,8 @@ class PatientIngest extends Component {
     super(props);
     this.state = {
       formData: {},
-      step: 0
+      step: 0,
+      submitted: false
     };
   }
 
@@ -34,10 +36,13 @@ class PatientIngest extends Component {
       formData: { ...this.state.formData, ...values },
       step: this.state.step + 1
     });
-  handleSubmit = values => console.log('payload:', values);
+  handleSubmit = values => {
+    console.log('payload:', values);
+    this.setState({ submitted: true });
+  }
 
   render() {
-    const { formData, step } = this.state;
+    const { formData, step, submitted } = this.state;
     return (
       <div className="PatientIngest">
         <div className="PatientIngest__sidebar">
@@ -67,6 +72,15 @@ class PatientIngest extends Component {
           {step === 5 && (
             <Summary formData={formData} onSubmit={this.handleSubmit} />
           )}
+          <Dialog
+            className="PatientIngest__congrats"
+            active={submitted}
+            title="Congrats!"
+          >
+            <p className="PatientIngest__congrats-text">
+              Your information has been submitted. As a Cilantro Health member, you'll receive full primary care with unprecedented collaboration with your doctor and health team. Together we'll build a 360º view of your health and create a long-term plan that’s just for you.
+            </p>
+          </Dialog>
         </div>
       </div>
     );

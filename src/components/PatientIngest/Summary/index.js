@@ -6,9 +6,9 @@ import './styles.css';
 
 const PatientIngestSummary = ({ formData, onSubmit }) => (
   <div className="PatientIngestSummary">
-    <h1 className="PatientIngestSummary__title">Summary</h1>
+    <h1 className="PatientIngestSummary__title">One last thing...</h1>
     <p className="PatientIngestSummary__sublabel">
-      Review your answers before submitting.
+      Review your answers before submitting. You can edit your answers by going back to the corresponding page.
     </p>
 
     <p className="PatientIngestSummary__label">Basics</p>

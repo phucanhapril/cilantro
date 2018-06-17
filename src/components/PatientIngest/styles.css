@@ -27,6 +27,14 @@
   color: #3cad9b;
 }
 
+.PatientIngest__congrats {
+  padding: 8px 16px;
+}
+
+p.PatientIngest__congrats-text {
+  line-height: normal;
+}
+
 /* Tablet+ */
 @media (min-width: 550px) {
   .PatientIngest {

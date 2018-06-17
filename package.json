@@ -29,6 +29,7 @@
     "include": [
       "BUTTON",
       "CHECKBOX",
+      "DIALOG",
       "DROPDOWN",
       "INPUT",
       "SWITCH"
